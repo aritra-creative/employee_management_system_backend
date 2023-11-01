@@ -7,7 +7,7 @@ import com.project.com.employee_backend.model.EmployeeModel;
 
 public interface EmployeeService {
 
-    Employee createEmployee(Employee employee);
+    EmployeeModel createEmployee(EmployeeModel employee);
 
     List<EmployeeModel> getAllEmployees();
 

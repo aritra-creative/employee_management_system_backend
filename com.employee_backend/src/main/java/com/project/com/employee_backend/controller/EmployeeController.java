@@ -30,7 +30,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/employee")
-    public Employee createEmployee(@RequestBody Employee employee) {
+    public EmployeeModel createEmployee(@RequestBody EmployeeModel employee) {
         return employeeService.createEmployee(employee);
     }
 
@@ -43,7 +43,7 @@ public class EmployeeController {
     public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable int id) {
         boolean deleted = false;
         deleted = employeeService.deleteEmployee(id);
-        Map<String, Boolean> response= new HashMap<>();
+        Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", deleted);
         return ResponseEntity.ok(response);
     }

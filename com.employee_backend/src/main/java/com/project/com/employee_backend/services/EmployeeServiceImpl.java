@@ -23,7 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee createEmployee(Employee employee) {
+    public EmployeeModel createEmployee(EmployeeModel employee) {
 
         Employee emp = new Employee();
         BeanUtils.copyProperties(employee, emp);
@@ -47,10 +47,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public boolean deleteEmployee(int id) {
-       Employee employee=employeeRepositary.findById(id).get();
-       employeeRepositary.delete(employee);
+        Employee employee = employeeRepositary.findById(id).get();
+        employeeRepositary.delete(employee);
         return true;
-        
+
     }
 
 }
