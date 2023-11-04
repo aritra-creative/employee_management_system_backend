@@ -11,8 +11,6 @@ import com.project.com.employee_backend.entity.Employee;
 import com.project.com.employee_backend.model.EmployeeModel;
 import com.project.com.employee_backend.repositary.EmployeeRepositary;
 
-import ch.qos.logback.core.joran.util.beans.BeanUtil;
-
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -51,6 +49,16 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepositary.delete(employee);
         return true;
 
+    }
+
+    @Override
+    public EmployeeModel updateEmployee(int id, EmployeeModel employee) {
+        Employee emp = employeeRepositary.findById(id).get();
+        emp.setFirstName(employee.getFirstName());
+        emp.setLastName(employee.getLastName());
+        emp.setEmail(employee.getEmail());
+        employeeRepositary.save(emp);
+        return employee;
     }
 
 }
